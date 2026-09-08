@@ -1,0 +1,147 @@
+/**
+ * RoundSync Design System — Motion
+ * Functional only. Respects prefers-reduced-motion.
+ */
+
+@keyframes marketing-splash-logo-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes marketing-splash-logo-out {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(0, -36px, 0) scale(0.97);
+  }
+}
+
+@keyframes marketing-splash-curtain-exit {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes marketing-splash-content-reveal {
+  from {
+    opacity: 0.92;
+    transform: translate3d(0, 18px, 0) scale(1.012);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes roundsync-loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes roundsync-loading-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.88;
+    transform: scale(0.96);
+  }
+}
+
+@keyframes roundsync-loading-dot {
+  0%,
+  80%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes rs-urgency-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.72;
+  }
+}
+
+.marketing-splash-logo--in {
+  animation: marketing-splash-logo-in 300ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.marketing-splash-logo--out {
+  animation: marketing-splash-logo-out 360ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.roundsync-loading-ring {
+  animation: roundsync-loading-spin 1.1s linear infinite;
+}
+
+.roundsync-loading-mark {
+  animation: roundsync-loading-pulse 1.6s ease-in-out infinite;
+}
+
+.roundsync-loading-dot {
+  animation: roundsync-loading-dot 1.2s ease-in-out infinite;
+}
+
+.roundsync-loading-dot--2 {
+  animation-delay: 0.15s;
+}
+
+.roundsync-loading-dot--3 {
+  animation-delay: 0.3s;
+}
+
+.marketing-splash-curtain {
+  will-change: transform;
+}
+
+.marketing-splash-curtain--exit {
+  animation: marketing-splash-curtain-exit var(--splash-exit-ms, 480ms)
+    cubic-bezier(0.76, 0, 0.24, 1) forwards;
+  pointer-events: none;
+}
+
+.marketing-splash-content--reveal {
+  animation: marketing-splash-content-reveal var(--splash-exit-ms, 480ms)
+    cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.rs-urgency-pulse {
+  animation: rs-urgency-pulse 600ms ease-in-out 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marketing-splash-logo--in,
+  .marketing-splash-logo--out,
+  .marketing-splash-curtain--exit,
+  .marketing-splash-content--reveal,
+  .roundsync-loading-ring,
+  .roundsync-loading-mark,
+  .roundsync-loading-dot,
+  .rs-urgency-pulse {
+    animation: none;
+  }
+}

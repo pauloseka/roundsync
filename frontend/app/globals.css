@@ -1,0 +1,29 @@
+@import url("https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap");
+@import "tailwindcss";
+@import "./styles/tokens.css";
+@import "./styles/motion.css";
+
+body {
+  background: var(--surface-base);
+  color: var(--ink-primary);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+/* Design system utilities */
+.rs-focus-ring {
+  outline: none;
+}
+
+.rs-focus-ring:focus-visible {
+  border-color: var(--brand-core);
+  box-shadow: var(--shadow-focus);
+}
